@@ -27,6 +27,7 @@ const Navbar = () => {
 
     const handleOnClick = () => {
         alert('hello');
+        handleCloseNavMenu();
     }
 
 
