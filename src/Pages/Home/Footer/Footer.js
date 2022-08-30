@@ -8,7 +8,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <Box>
-            <Stack sx={{ justifyContent: 'center', color: 'white', backgroundColor: 'black', p: 5 }} direction="row" spacing={5}>
+            <Stack sx={{ justifyContent: 'center', color: 'white', backgroundColor: 'black', p: 5, mt: 3 }} direction="row" spacing={5}>
                 <Stack spacing={2}>
                     <Typography variant='h4'>Our Services</Typography>
                     <Typography variant='overline'>About Our Services</Typography>
