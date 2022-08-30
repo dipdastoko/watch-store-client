@@ -41,7 +41,7 @@ const Products = () => {
             <Typography variant='h3' sx={{ fontFamily: 'initial' }}>Our Products</Typography>
             <hr style={{ margin: '0 25%' }} />
 
-            <Grid sx={{ mt: 5, ml: 5 }} container>
+            <Grid sx={{ mt: 5, }} container>
                 {
                     products.map(product => <Product
                         key={product.name}

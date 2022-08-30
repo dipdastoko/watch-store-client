@@ -10,7 +10,7 @@ import { Grid } from '@mui/material';
 const Product = ({ product }) => {
     const { name, img, shortDescription } = product;
     return (
-        <Grid sx={{ mb: 5, flexGrow: 0 }} xs={12} md={6} lg={4}>
+        <Grid sx={{ mb: 5 }} xs={12} md={6} lg={4}>
             <Card sx={{ maxWidth: 345, ml: 5 }}>
                 <CardMedia
                     component="img"
