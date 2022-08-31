@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 
 const Product = ({ product }) => {
-    const { name, img, shortDescription } = product;
+    const { name, img, shortDescription, price } = product;
     return (
         <Grid sx={{ mb: 5 }} xs={12} md={6} lg={4}>
             <Card sx={{ maxWidth: 345, ml: 5 }}>
@@ -23,8 +23,11 @@ const Product = ({ product }) => {
                         {name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
+                        {shortDescription}
+                    </Typography>
+                    <br />
+                    <Typography sx={{ fontWeight: 'bold' }} variant='overline'>
+                        Price: {price}tk
                     </Typography>
                 </CardContent>
                 <CardActions sx={{ justifyContent: 'center' }}>

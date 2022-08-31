@@ -6,32 +6,38 @@ const products = [
     {
         name: 'Alexandre Christie',
         img: 'https://i.ibb.co/554fJbX/Alexandre-Christie.png',
-        shortDescription: ''
+        shortDescription: "A watch is a portable timepiece intended to be carried or worn by a person. It is designed to keep a consistent movement despite the motions caused by the person's activities.",
+        price: '100'
     },
     {
         name: 'Brown Black Belt',
         img: 'https://i.ibb.co/35xYDSw/Brown-Black-Belt.png',
-        shortDescription: ''
+        shortDescription: "A watch is a portable timepiece intended to be carried or worn by a person. It is designed to keep a consistent movement despite the motions caused by the person's activities.",
+        price: '100'
     },
     {
         name: 'Festina Analog',
         img: 'https://i.ibb.co/JdC4N2H/Festina-Analog.png',
-        shortDescription: ''
+        shortDescription: "A watch is a portable timepiece intended to be carried or worn by a person. It is designed to keep a consistent movement despite the motions caused by the person's activities.",
+        price: '100'
     },
     {
         name: 'Fossil 10 ATM',
         img: 'https://i.ibb.co/mGtC15D/Fossil-10-ATM.png',
-        shortDescription: ''
+        shortDescription: "A watch is a portable timepiece intended to be carried or worn by a person. It is designed to keep a consistent movement despite the motions caused by the person's activities.",
+        price: '100'
     },
     {
         name: 'Fossil Brown Leather',
         img: 'https://i.ibb.co/bzK6h2V/Fossil-Brown-Leather.png',
-        shortDescription: ''
+        shortDescription: "A watch is a portable timepiece intended to be carried or worn by a person. It is designed to keep a consistent movement despite the motions caused by the person's activities.",
+        price: '100'
     },
     {
         name: 'IWC Brown Leather',
         img: 'https://i.ibb.co/mNGKXZy/IWC-Brown-Leather-Watch.png',
-        shortDescription: ''
+        shortDescription: "A watch is a portable timepiece intended to be carried or worn by a person. It is designed to keep a consistent movement despite the motions caused by the person's activities.",
+        price: '100'
     }
 ]
 
