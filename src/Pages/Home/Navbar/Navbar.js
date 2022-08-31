@@ -10,11 +10,18 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
 
 
-const pages = ['explore', 'login', 'register'];
 
 const Navbar = () => {
+    const { user, logOut } = useAuth();
+
+    let pages = ['explore', 'login', 'register'];
+    if (user.email) {
+        pages = ['explore', 'dashboard'];
+    }
+
     const navigate = useNavigate();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -121,7 +128,23 @@ const Navbar = () => {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Typography>Hello</Typography>
+                        {
+                            user.email &&
+                            <>
+                                <Typography
+                                    sx={{ mr: 3 }}
+                                    variant='underline'
+                                >
+                                    {user.displayName}
+                                </Typography>
+                                <Button
+                                    variant='contained' color='info'
+                                    onClick={logOut}
+                                >
+                                    Logout
+                                </Button>
+                            </>
+                        }
                     </Box>
                 </Toolbar>
             </Container>

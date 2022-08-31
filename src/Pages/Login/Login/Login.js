@@ -7,7 +7,7 @@ import useAuth from '../../../Hooks/useAuth';
 
 const Login = () => {
 
-    const { googleSignIn } = useAuth();
+    const { googleSignIn, signInWithEmailPass } = useAuth();
 
     const [values, setValues] = React.useState({
         email: '',
@@ -31,7 +31,7 @@ const Login = () => {
     };
 
     const handleLogin = e => {
-        console.log(values);
+        signInWithEmailPass(values.email, values.password);
         e.preventDefault();
     }
     return (
@@ -92,6 +92,7 @@ const Login = () => {
                 Sign in with google
 
             </Button>
+            <br />
             <br />
             <Typography variant='subtitle1'>
                 Don't have and account?

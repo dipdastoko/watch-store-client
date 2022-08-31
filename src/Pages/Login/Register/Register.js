@@ -3,8 +3,12 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Home/Navbar/Navbar';
+import useAuth from '../../../Hooks/useAuth';
 
 const Register = () => {
+
+    const { registerWithEmailPass } = useAuth();
+
     const [values, setValues] = React.useState({
         name: '',
         email: '',
@@ -28,7 +32,7 @@ const Register = () => {
     };
 
     const handleRegister = e => {
-        console.log(values);
+        registerWithEmailPass(values.email, values.password, values.name);
         e.preventDefault();
     }
     return (
@@ -45,6 +49,7 @@ const Register = () => {
                     type='text'
                     onChange={handleChange('name')}
                     variant="outlined"
+                    required
                 />
 
                 <br />
@@ -57,6 +62,7 @@ const Register = () => {
                     type='email'
                     onChange={handleChange('email')}
                     variant="outlined"
+                    required
                 />
 
                 <br />
@@ -64,9 +70,11 @@ const Register = () => {
 
                 {/* password field */}
                 <FormControl variant="outlined">
+
                     <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                     <OutlinedInput
                         sx={{ width: '300px' }}
+                        required
                         id="outlined-adornment-password"
                         type={values.showPassword ? 'text' : 'password'}
                         value={values.password}
