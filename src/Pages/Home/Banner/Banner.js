@@ -10,7 +10,7 @@ const Banner = () => {
 
         <Carousel>
             {
-                images.map(image => <img style={{
+                images.map(image => <img key={image} style={{
                     width: '100%',
                     maxHeight: '500px'
 

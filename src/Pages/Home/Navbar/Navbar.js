@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 
 
-const pages = ['Explore', 'Login', 'Register'];
+const pages = ['explore', 'login', 'register'];
 
 const Navbar = () => {
     const navigate = useNavigate();
