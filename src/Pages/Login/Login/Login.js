@@ -3,11 +3,11 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Home/Navbar/Navbar';
-import useFirebase from '../../../Hooks/useFirebase';
+import useAuth from '../../../Hooks/useAuth';
 
 const Login = () => {
 
-    const { googleSignIn } = useFirebase();
+    const { googleSignIn } = useAuth();
 
     const [values, setValues] = React.useState({
         email: '',
