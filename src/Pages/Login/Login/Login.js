@@ -1,9 +1,14 @@
-import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from '@mui/material';
+import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, Typography } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../Home/Navbar/Navbar';
+import useFirebase from '../../../Hooks/useFirebase';
 
 const Login = () => {
+
+    const { googleSignIn } = useFirebase();
+
     const [values, setValues] = React.useState({
         email: '',
         password: '',
@@ -82,6 +87,17 @@ const Login = () => {
                     Login
                 </Button>
             </form>
+            <br />
+            <Button onClick={googleSignIn} variant="contained" color="primary">
+                Sign in with google
+
+            </Button>
+            <br />
+            <Typography variant='subtitle1'>
+                Don't have and account?
+                <Link to='/register'><Button variant="text">Register</Button></Link>
+
+            </Typography>
         </Box>
     );
 };

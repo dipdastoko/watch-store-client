@@ -1,6 +1,7 @@
-import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from '@mui/material';
+import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, Typography } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../Home/Navbar/Navbar';
 
 const Register = () => {
@@ -94,6 +95,13 @@ const Register = () => {
                     Register
                 </Button>
             </form>
+
+            <br />
+            <Typography variant='subtitle1'>
+                Already have an account?
+                <Link to='/login'><Button variant="text">Login</Button></Link>
+
+            </Typography>
         </Box>
     );
 };
