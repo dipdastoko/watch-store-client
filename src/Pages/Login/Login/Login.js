@@ -1,13 +1,15 @@
 import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, Typography } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Navbar from '../../Home/Navbar/Navbar';
 import useAuth from '../../../Hooks/useAuth';
 
 const Login = () => {
 
     const { googleSignIn, signInWithEmailPass } = useAuth();
+
+    const location = useLocation();
 
     const [values, setValues] = React.useState({
         email: '',
