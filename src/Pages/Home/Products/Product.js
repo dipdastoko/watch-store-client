@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
     const { name, img, shortDescription, price } = product;
@@ -31,7 +32,7 @@ const Product = ({ product }) => {
                     </Typography>
                 </CardContent>
                 <CardActions sx={{ justifyContent: 'center' }}>
-                    <Button size="small">Purchase Now</Button>
+                    <Link to='/purchasenow' style={{ textDecoration: 'none' }}><Button size="small">Purchase Now</Button></Link>
                 </CardActions>
             </Card>
         </Grid>

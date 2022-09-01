@@ -1,7 +1,7 @@
 import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, Typography } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../../Home/Navbar/Navbar';
 import useAuth from '../../../Hooks/useAuth';
 
@@ -10,6 +10,7 @@ const Login = () => {
     const { googleSignIn, signInWithEmailPass } = useAuth();
 
     const location = useLocation();
+    const navigate = useNavigate();
 
     const [values, setValues] = React.useState({
         email: '',
@@ -33,7 +34,7 @@ const Login = () => {
     };
 
     const handleLogin = e => {
-        signInWithEmailPass(values.email, values.password);
+        signInWithEmailPass(values.email, values.password, location, navigate);
         e.preventDefault();
     }
     return (
@@ -90,7 +91,7 @@ const Login = () => {
                 </Button>
             </form>
             <br />
-            <Button onClick={googleSignIn} variant="contained" color="primary">
+            <Button onClick={() => googleSignIn(location, navigate)} variant="contained" color="primary">
                 Sign in with google
 
             </Button>
