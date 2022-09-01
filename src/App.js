@@ -26,7 +26,9 @@ function App() {
             <Route path='purchasenow' element={<PrivateRoute>
               <PurchaseNow />
             </PrivateRoute>} />
-            <Route path='dashboard' element={<Dashboard />} >
+            <Route path='dashboard' element={<PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>} >
               <Route path='/dashboard/payment' element={<Payment />} />
               <Route path='/dashboard/myorders' element={<MyOrders />} />
               <Route path='/dashboard/review' element={<TakeReview />} />

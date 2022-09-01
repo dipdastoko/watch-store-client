@@ -64,11 +64,13 @@ const useFirebase = () => {
         })
     }, []);
 
-    const logOut = () => {
+    const logOut = (navigate) => {
         setIsLoading(true);
         signOut(auth)
             .then(() => {
                 setUser({});
+                navigate('/');
+
             })
             .finally(() => setIsLoading(false));
     };

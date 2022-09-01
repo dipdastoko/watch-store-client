@@ -139,7 +139,7 @@ const Navbar = () => {
                                 </Typography>
                                 <Button
                                     variant='contained' color='info'
-                                    onClick={logOut}
+                                    onClick={() => logOut(navigate)}
                                 >
                                     Logout
                                 </Button>

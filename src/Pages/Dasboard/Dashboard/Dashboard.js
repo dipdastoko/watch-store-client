@@ -30,6 +30,8 @@ function Dashboard(props) {
     };
 
     const { logOut } = useAuth();
+    const navigate = useNavigate();
+
 
     const handleIcons = index => {
         switch (index) {
@@ -50,14 +52,13 @@ function Dashboard(props) {
         }
     };
 
-    const navigate = useNavigate();
     const handleDashboardLinks = path => {
         const url = path.replace(/\s/g, '').toLowerCase();
         if (url === 'home') {
             navigate('/home');
         }
         else if (url === 'logout') {
-            logOut();
+            logOut(navigate);
         }
         else {
 
