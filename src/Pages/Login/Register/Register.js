@@ -1,25 +1,13 @@
 import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField, Typography } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../../Home/Navbar/Navbar';
 import useAuth from '../../../Hooks/useAuth';
 
 const Register = () => {
 
-    const { registerWithEmailPass } = useAuth();
-
-    const [values, setValues] = React.useState({
-        name: '',
-        email: '',
-        password: '',
-        showPassword: false,
-    });
-
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
-
+    // next two functions for password field
     const handleClickShowPassword = () => {
         setValues({
             ...values,
@@ -31,8 +19,33 @@ const Register = () => {
         event.preventDefault();
     };
 
+    // register user in firebase
+    const { registerWithEmailPass } = useAuth();
+
+    // taking info to register from front-end
+    const [values, setValues] = React.useState({
+        name: '',
+        email: '',
+        phone: '',
+        password: '',
+        showPassword: false,
+    });
+
+    // taking the updated values to register from front-end
+    const handleChange = (prop) => (event) => {
+        setValues({ ...values, [prop]: event.target.value });
+    };
+
+
+    // when register button is clicked
+    const navigate = useNavigate();
     const handleRegister = e => {
-        registerWithEmailPass(values.email, values.password, values.name);
+
+        const newUser = { name: values.name, email: values.email, phone: values.phone };
+
+        registerWithEmailPass(values.email, values.password, values.name, newUser, navigate);
+
+
         e.preventDefault();
     }
     return (
@@ -61,6 +74,18 @@ const Register = () => {
                     label="Email"
                     type='email'
                     onChange={handleChange('email')}
+                    variant="outlined"
+                    required
+                />
+
+                <br />
+                <br />
+                {/* phone field */}
+                <TextField
+                    sx={{ width: '300px' }}
+                    label="Phone"
+                    type='text'
+                    onChange={handleChange('phone')}
                     variant="outlined"
                     required
                 />
@@ -98,7 +123,7 @@ const Register = () => {
                 <br />
                 <br />
 
-                {/* login button */}
+                {/* register button */}
                 <Button type='submit' variant="contained" color="success">
                     Register
                 </Button>

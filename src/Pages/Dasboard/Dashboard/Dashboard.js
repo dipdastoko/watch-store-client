@@ -5,17 +5,15 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Home, Logout, Payment, RateReview, ShoppingBag } from '@mui/icons-material';
+import { AddCircle, Home, Logout, MenuBook, Payment, RateReview, ShoppingBag, ShoppingBasket, SupervisorAccount } from '@mui/icons-material';
 import { Outlet, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 
@@ -29,36 +27,72 @@ function Dashboard(props) {
         setMobileOpen(!mobileOpen);
     };
 
-    const { logOut } = useAuth();
+    const { logOut, isAdmin } = useAuth();
     const navigate = useNavigate();
 
+    // storing dashboard links names in a array. two different array for normal registered user and admin.
+    let dashboardLinkNames;
+    if (isAdmin) {
+        dashboardLinkNames = ['Home', 'Manage All Orders', 'Add Product', 'Make Admin', 'Manage Products', 'Logout'];
+    }
+    else {
+        dashboardLinkNames = ['Home', 'Payment', 'My Orders', 'Review', 'Logout'];
+    }
 
+    // separate set of icons for admin and normal user
     const handleIcons = index => {
-        switch (index) {
+        if (isAdmin) {
+            switch (index) {
 
-            case 0:
-                return <Home />;
-            case 1:
-                return <Payment />;
-            case 2:
-                return <ShoppingBag />
-            case 3:
-                return <RateReview />
-            case 4:
-                return <Logout />
+                case 0:
+                    return <Home />;
+                case 1:
+                    return <MenuBook />;
+                case 2:
+                    return <AddCircle />
+                case 3:
+                    return <SupervisorAccount />
+                case 4:
+                    return <ShoppingBasket />
+                case 5:
+                    return <Logout />
 
-            default:
-                break;
+                default:
+                    break;
+            }
+        }
+        else {
+            switch (index) {
+
+                case 0:
+                    return <Home />;
+                case 1:
+                    return <Payment />;
+                case 2:
+                    return <ShoppingBag />
+                case 3:
+                    return <RateReview />
+                case 4:
+                    return <Logout />
+
+                default:
+                    break;
+            }
         }
     };
 
+    // setting route paths to navigate when links are clicked
     const handleDashboardLinks = path => {
         const url = path.replace(/\s/g, '').toLowerCase();
         if (url === 'home') {
-            navigate('/home');
+            navigate('/');
         }
         else if (url === 'logout') {
-            logOut(navigate);
+            logOut(navigate
+            );
+        }
+        else if (isAdmin) {
+            navigate(`/dashboard/admin/${url}`);
         }
         else {
 
@@ -72,7 +106,7 @@ function Dashboard(props) {
             <Divider />
 
             <List>
-                {['Home', 'Payment', 'My Orders', 'Review', 'Logout'].map((text, index) => (
+                {dashboardLinkNames.map((text, index) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton onClick={() => handleDashboardLinks(text)}>
                             <ListItemIcon>
@@ -84,18 +118,6 @@ function Dashboard(props) {
                 ))}
             </List>
             <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
         </div>
     );
 
@@ -163,9 +185,6 @@ function Dashboard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                <Typography paragraph>
-                    hello
-                </Typography>
                 <Outlet />
             </Box>
         </Box>

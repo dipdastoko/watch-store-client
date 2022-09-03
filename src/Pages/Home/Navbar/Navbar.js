@@ -15,7 +15,7 @@ import useAuth from '../../../Hooks/useAuth';
 
 
 const Navbar = () => {
-    const { user, logOut } = useAuth();
+    const { user, logOut, isAdmin } = useAuth();
 
     let pages = ['explore', 'login', 'register'];
     if (user.email) {
@@ -35,7 +35,13 @@ const Navbar = () => {
     };
 
     const handleOnClick = (path) => {
-        navigate(`/${path}`);
+        if (isAdmin && path === 'dashboard') {
+            navigate(`/${path}/admin`);
+        }
+        else {
+
+            navigate(`/${path}`);
+        }
         handleCloseNavMenu();
     }
 

@@ -3,16 +3,16 @@ import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 
-const PrivateRoute = ({ children }) => {
-    const { user, isLoading } = useAuth();
+const AdminRoute = ({ children }) => {
+    const { user, isLoading, isAdmin } = useAuth();
     const location = useLocation();
 
     if (isLoading) {
         return <CircularProgress />
     }
     else {
-        return user?.email ? children : <Navigate replace state={{ from: location }} to='/login' />
+        return user?.email && isAdmin ? children : <Navigate replace state={{ from: location }} to='/login' />
     }
 };
 
-export default PrivateRoute;
+export default AdminRoute;
