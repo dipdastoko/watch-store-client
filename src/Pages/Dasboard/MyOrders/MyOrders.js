@@ -1,19 +1,38 @@
-import { Button, Grid, Paper, Typography } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogTitle, Grid, Paper, Typography } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 
 const MyOrders = () => {
+    const [open, setOpen] = useState(false);
+    const [orderId, setOrderId] = useState('');
     const [orders, setOrders] = useState([]);
+    const [isCanceled, setIsCanceled] = useState(false);
     const { user } = useAuth();
+
+    const handleClose = () => {
+        setOpen(false);
+    }
+
+
+
     useEffect(() => {
         fetch(`http://localhost:5000/orders/${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data));
-    }, [user.email]);
+        setIsCanceled(false);
+    }, [user.email, isCanceled]);
 
-    const handleCancelOrder = () => {
-        alert('cancel order');
+    const deleteOrder = id => {
+        fetch(`http://localhost:5000/order/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount) {
+                    setIsCanceled(true);
+                }
+            });
     }
     return (
         <div>
@@ -33,12 +52,33 @@ const MyOrders = () => {
                             <Typography>
                                 Price: {order.price}tk
                             </Typography>
-                            <Button onClick={handleCancelOrder}>Cancel Order</Button>
+                            <Button onClick={() => {
+                                setOpen(true);
+                                setOrderId(order._id);
+                            }}>Cancel Order</Button>
                         </Paper>
                     </Grid>)
                 }
 
             </Grid>
+            <Dialog
+                open={open}
+                onClose={handleClose}
+            >
+                <DialogTitle>
+                    {"Cancel Order? Click 'Yes' to confirm"}
+                </DialogTitle>
+
+                <DialogActions>
+                    <Button onClick={() => {
+                        deleteOrder(orderId);
+                        handleClose();
+                    }}>Yes</Button>
+                    <Button onClick={() => {
+                        handleClose();
+                    }}>No</Button>
+                </DialogActions>
+            </Dialog>
         </div>
     );
 };
