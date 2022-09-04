@@ -1,16 +1,10 @@
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import useProducts from '../../../Hooks/useProducts';
 import Product from './Product';
 
 const Products = () => {
-    const [homePageProducts, setHomePageProducts] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/homeproducts?page=home')
-            .then(res => res.json())
-            .then(data => setHomePageProducts(data));
-    }, []);
+    const homePageProducts = useProducts('home');
     return (
         <div>
             <Typography variant='h3' sx={{ fontFamily: 'initial' }}>Our Products</Typography>

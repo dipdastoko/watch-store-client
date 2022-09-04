@@ -1,16 +1,11 @@
 import { Grid, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import useProducts from '../../Hooks/useProducts';
 import Footer from '../Home/Footer/Footer';
 import Navbar from '../Home/Navbar/Navbar';
 import Product from '../Home/Products/Product';
 
 const Explore = () => {
-    const [allProducts, setAllProducts] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/homeproducts?page=explore')
-            .then(res => res.json())
-            .then(data => setAllProducts(data));
-    }, []);
+    const allProducts = useProducts('all');
     return (
         <div>
             <Navbar />

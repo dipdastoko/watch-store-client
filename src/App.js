@@ -27,7 +27,7 @@ function App() {
             <Route path='explore' element={<Explore />} />
             <Route path='login' element={<Login />} />
             <Route path='register' element={<Register />} />
-            <Route path='purchasenow' element={<PrivateRoute>
+            <Route path='purchasenow/:productId' element={<PrivateRoute>
               <PurchaseNow />
             </PrivateRoute>} />
 
