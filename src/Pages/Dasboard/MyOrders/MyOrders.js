@@ -34,6 +34,9 @@ const MyOrders = () => {
                 }
             });
     }
+    if (orders.length === 0) {
+        return <Typography variant='h4'>You have not placed any order yet.</Typography>
+    }
     return (
         <div>
             <h2>My Orders</h2>

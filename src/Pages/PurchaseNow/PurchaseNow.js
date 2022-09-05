@@ -46,7 +46,9 @@ const PurchaseNow = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    setAlertMessage('success')
+                    setAlertMessage('success');
+                    orderDetails.phone = '';
+                    orderDetails.address = '';
                 }
                 else {
                     setAlertMessage('error')
