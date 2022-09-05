@@ -36,7 +36,7 @@ function Dashboard(props) {
         dashboardLinkNames = ['Home', 'Manage All Orders', 'Add Product', 'Make Admin', 'Manage Products', 'Logout'];
     }
     else {
-        dashboardLinkNames = ['Home', 'Payment', 'My Orders', 'Review', 'Logout'];
+        dashboardLinkNames = ['Home', 'My Orders', 'Payment', 'Review', 'Logout'];
     }
 
     // separate set of icons for admin and normal user
@@ -67,13 +67,13 @@ function Dashboard(props) {
                 case 0:
                     return <Home />;
                 case 1:
-                    return <Payment />;
+                    return <ShoppingBag />;
                 case 2:
-                    return <ShoppingBag />
+                    return <Payment />;
                 case 3:
-                    return <RateReview />
+                    return <RateReview />;
                 case 4:
-                    return <Logout />
+                    return <Logout />;
 
                 default:
                     break;

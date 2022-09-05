@@ -38,7 +38,7 @@ function App() {
               </PrivateRoute>
             }
             >
-              <Route index element={<Payment />} />
+              <Route index element={<MyOrders />} />
               <Route path='/dashboard/payment' element={<Payment />} />
               <Route path='/dashboard/myorders' element={<MyOrders />} />
               <Route path='/dashboard/review' element={<TakeReview />} />

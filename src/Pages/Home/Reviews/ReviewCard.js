@@ -6,7 +6,7 @@ const ReviewCard = (props) => {
     return (
 
         <Grid item xs={12} md={6} lg={4}>
-            <Paper sx={{ height: 200, backgroundColor: 'blanchedalmond' }} elevation={3}>
+            <Paper sx={{ height: 200 }} elevation={6}>
                 <Grid container spacing={1} sx={{ p: 1 }} justifyContent='start'  >
                     <Grid container item xs={6}>
                         <Grid item xs={6}>
