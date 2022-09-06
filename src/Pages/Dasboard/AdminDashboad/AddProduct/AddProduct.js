@@ -33,6 +33,7 @@ const AddProduct = () => {
             .then(data => {
                 if (data.insertedId) {
                     setAlertMessage('success');
+                    Object.keys(productInfo).forEach(key => productInfo[key] = '');
                 }
             });
         setOpen(true);
@@ -46,7 +47,8 @@ const AddProduct = () => {
                 <TextField
                     label="Product Name"
                     name='name'
-                    onBlur={handleOnBlur}
+                    value={productInfo.name || ''}
+                    onChange={handleOnBlur}
                     sx={{ width: 400 }}
                     variant="outlined"
                 />
@@ -54,7 +56,8 @@ const AddProduct = () => {
                 <TextField
                     label="Image Link"
                     name='img'
-                    onBlur={handleOnBlur}
+                    value={productInfo.img || ''}
+                    onChange={handleOnBlur}
                     sx={{ width: 400 }}
                     variant="outlined"
                 />
@@ -62,7 +65,8 @@ const AddProduct = () => {
                 <TextField
                     label="Price"
                     name='price'
-                    onBlur={handleOnBlur}
+                    value={productInfo.price || ''}
+                    onChange={handleOnBlur}
                     sx={{ width: 400 }}
                     variant="outlined"
                 />
@@ -70,7 +74,8 @@ const AddProduct = () => {
                 <TextField
                     label="About Product"
                     name='shortDescription'
-                    onBlur={handleOnBlur}
+                    value={productInfo.shortDescription || ''}
+                    onChange={handleOnBlur}
                     sx={{ width: 400 }}
                     multiline
                     rows={4}
