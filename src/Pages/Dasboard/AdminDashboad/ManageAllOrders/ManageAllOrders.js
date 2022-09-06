@@ -5,31 +5,37 @@ const ManageAllOrders = () => {
     const [orders, setOrders] = useState([]);
     const [open, setOpen] = useState(false);
     const [orderId, setOrderId] = useState('');
-    const [isCanceled, setIsCanceled] = useState(false);
+    const [isCanceledOrUpdated, setIsCanceledOrUpdated] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
 
 
     const handleClose = () => {
         setOpen(false);
     };
 
-    const deleteOrder = id => {
+    useEffect(() => {
+        fetch('http://localhost:5000/orders')
+            .then(res => res.json())
+            .then(data => setOrders(data));
+    }, [isCanceledOrUpdated]);
+
+    const removeOrUpdateOrder = (id, method) => {
         fetch(`http://localhost:5000/order/${id}`, {
-            method: 'DELETE'
+            method: `${method}`
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data);
                 if (data.deletedCount) {
-                    setIsCanceled(true);
+                    setIsCanceledOrUpdated(true);
+                }
+                if (data.modifiedCount) {
+                    setIsCanceledOrUpdated(true);
                 }
             });
     };
 
 
-    useEffect(() => {
-        fetch('http://localhost:5000/orders')
-            .then(res => res.json())
-            .then(data => setOrders(data));
-    }, [isCanceled]);
     return (
         <div>
             <h2>Manage All Orders</h2>
@@ -55,11 +61,21 @@ const ManageAllOrders = () => {
                                 Address: {order.address}
                             </Typography>
 
-                            <Typography variant='subtitle2' sx={{ mt: 1 }}>Current Status: {order.status}</Typography>
+                            <Typography variant='subtitle2' sx={{ my: 1 }}>Current Status: {order.status}</Typography>
+
                             <Button onClick={() => {
                                 setOpen(true);
                                 setOrderId(order._id);
+                                setAlertMessage('update');
 
+                            }}>
+                                Update Status
+                            </Button>
+                            <br />
+                            <Button onClick={() => {
+                                setOpen(true);
+                                setOrderId(order._id);
+                                setAlertMessage('remove');
                             }}>Revmove Order</Button>
                         </Paper>
 
@@ -72,12 +88,17 @@ const ManageAllOrders = () => {
                 onClose={handleClose}
             >
                 <DialogTitle>
-                    {"Are you sure to remove the order?"}
+                    {alertMessage === 'remove' ? "Are you sure to remove the order?" : 'Procced for shipping?'}
                 </DialogTitle>
 
                 <DialogActions>
                     <Button onClick={() => {
-                        deleteOrder(orderId);
+                        if (alertMessage === 'remove') {
+                            removeOrUpdateOrder(orderId, 'DELETE');
+                        }
+                        else {
+                            removeOrUpdateOrder(orderId, 'PUT');
+                        }
                         handleClose();
                     }}>Yes</Button>
                     <Button onClick={() => {

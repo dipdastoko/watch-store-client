@@ -15,7 +15,7 @@ const Explore = () => {
             <Grid sx={{ mt: 5 }} container>
                 {
                     allProducts.map(product => <Product
-                        key={product.name}
+                        key={product._id}
                         product={product}
                     />)
                 }

@@ -5,9 +5,9 @@ import useAuth from '../../../Hooks/useAuth';
 
 const MyOrders = () => {
     const [open, setOpen] = useState(false);
+    const [isCanceled, setIsCanceled] = useState(false);
     const [orderId, setOrderId] = useState('');
     const [orders, setOrders] = useState([]);
-    const [isCanceled, setIsCanceled] = useState(false);
     const { user } = useAuth();
 
     const handleClose = () => {

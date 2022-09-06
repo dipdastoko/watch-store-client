@@ -77,7 +77,7 @@ const AddProduct = () => {
                     variant="outlined"
                 />
                 <br /><br />
-                <Button variant='contained' type='submit'>Submit</Button>
+                <Button variant='contained' type='submit'>Add Product</Button>
             </form>
             <br /><br />
             {
