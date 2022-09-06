@@ -15,6 +15,7 @@ import AdminRoute from './Pages/Login/AdminRoute/AdminRoute';
 import Login from './Pages/Login/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './Pages/Login/Register/Register';
+import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import PurchaseNow from './Pages/PurchaseNow/PurchaseNow';
 
 function App() {
@@ -57,6 +58,8 @@ function App() {
               <Route path='/dashboard/admin/makeadmin' element={<MakeAdmin />} />
               <Route path='/dashboard/admin/manageproducts' element={<ManageProducts />} />
             </Route>
+
+            <Route path='*' element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
