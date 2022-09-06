@@ -35,7 +35,7 @@ const PurchaseNow = () => {
 
     const handlePlaceOrder = e => {
         setOpen(true);
-        const order = { ...orderDetails, productName: selectedProduct.name, price: selectedProduct.price, img: selectedProduct.img };
+        const order = { ...orderDetails, productName: selectedProduct.name, price: selectedProduct.price, img: selectedProduct.img, status: 'Pending' };
         fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {

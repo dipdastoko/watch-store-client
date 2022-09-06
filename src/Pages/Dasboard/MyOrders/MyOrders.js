@@ -12,7 +12,7 @@ const MyOrders = () => {
 
     const handleClose = () => {
         setOpen(false);
-    }
+    };
 
 
 
@@ -33,10 +33,12 @@ const MyOrders = () => {
                     setIsCanceled(true);
                 }
             });
-    }
+    };
+
     if (orders.length === 0) {
         return <Typography variant='h4'>You have not placed any order yet.</Typography>
-    }
+    };
+
     return (
         <div>
             <h2>My Orders</h2>
@@ -55,11 +57,13 @@ const MyOrders = () => {
                             <Typography>
                                 Price: {order.price}tk
                             </Typography>
+                            <Typography variant='subtitle2'>Current Status: {order.status}</Typography>
                             <Button onClick={() => {
                                 setOpen(true);
                                 setOrderId(order._id);
                             }}>Cancel Order</Button>
                         </Paper>
+
                     </Grid>)
                 }
 
