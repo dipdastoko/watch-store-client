@@ -25,7 +25,7 @@ const ManageProducts = () => {
 
     const allProducts = useProducts('all', isCanceled);
 
-    console.log('hello');
+    console.log('hello hello');
 
     return (
         <div>
