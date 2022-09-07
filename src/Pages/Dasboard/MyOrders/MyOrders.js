@@ -17,14 +17,14 @@ const MyOrders = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${user.email}`)
+        fetch(`https://polar-citadel-78881.herokuapp.com/orders/${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data));
         setIsCanceled(false);
     }, [user.email, isCanceled]);
 
     const deleteOrder = id => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://polar-citadel-78881.herokuapp.com/order/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

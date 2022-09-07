@@ -8,7 +8,7 @@ const ManageProducts = () => {
     const [productId, setProductId] = useState('');
 
     const handleRemoveProduct = id => {
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://polar-citadel-78881.herokuapp.com/product/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

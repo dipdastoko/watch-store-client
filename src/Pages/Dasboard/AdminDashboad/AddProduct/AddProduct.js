@@ -22,7 +22,7 @@ const AddProduct = () => {
         setProductInfo(newProductInfo);
     }
     const handleSubmit = e => {
-        fetch('http://localhost:5000/product', {
+        fetch('https://polar-citadel-78881.herokuapp.com/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

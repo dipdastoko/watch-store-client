@@ -36,7 +36,7 @@ const PurchaseNow = () => {
     const handlePlaceOrder = e => {
         setOpen(true);
         const order = { ...orderDetails, productName: selectedProduct.name, price: selectedProduct.price, img: selectedProduct.img, status: 'Pending' };
-        fetch('http://localhost:5000/orders', {
+        fetch('https://polar-citadel-78881.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

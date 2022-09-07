@@ -14,13 +14,13 @@ const ManageAllOrders = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://polar-citadel-78881.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data));
     }, [isCanceledOrUpdated]);
 
     const removeOrUpdateOrder = (id, method) => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://polar-citadel-78881.herokuapp.com/order/${id}`, {
             method: `${method}`
         })
             .then(res => res.json())

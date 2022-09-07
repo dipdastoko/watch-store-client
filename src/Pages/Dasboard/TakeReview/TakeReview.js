@@ -24,7 +24,7 @@ const TakeReview = () => {
         const review = { reviewText, rating: value, name: user.displayName, date: date.toLocaleDateString() };
         console.log(review);
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://polar-citadel-78881.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
