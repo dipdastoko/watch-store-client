@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Watch Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Site: https://watch-store-40274.web.app/
 
-## Available Scripts
+## Short Description
 
-In the project directory, you can run:
+Watch Store is a website from where people can buy wrist watches from online. They can choose a watch from the collection of watches that the website shows and order it.
 
-### `npm start`
+## Technologies used to build this website
+- JSX
+- CSS
+- Material UI
+- Fontawesome Icons
+- React.js
+- Javascript
+- Express.js
+- Node.js
+- MongoDB
+- Firebase Authentication
+- Server is hosted in HEROKU
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Functionality
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### User </br>
+- user must login to place a order
+- will be redirected to login page if the user is not logged in and clicks the 'Purchase Now' button
+- 'Dashboard' will be available when a user is logged in
+- in dasboard a user can see his/her orders and cancel orders and make payment and give reviews.
+- reviews given by a user will be displayed in home page
 
-### `npm test`
+### Admin
+- admin can see all the orders and delete any order and update status of a order from 'Pending' to 'Shipped'.
+- admin can manage all the products. he/she can add a new product and remove a product from database.
+- admin can make another user an admin.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
