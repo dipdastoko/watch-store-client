@@ -22,7 +22,6 @@ const TakeReview = () => {
         setOpen(true);
 
         const review = { reviewText, rating: value, name: user.displayName, date: date.toLocaleDateString() };
-        console.log(review);
 
         fetch('https://polar-citadel-78881.herokuapp.com/review', {
             method: 'POST',
@@ -33,7 +32,6 @@ const TakeReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.insertedId) {
                     setIsSuccess('success');
                     setReviewText('');

@@ -18,7 +18,6 @@ const AddProduct = () => {
 
         const newProductInfo = { ...productInfo };
         newProductInfo[field] = value;
-        console.log(newProductInfo);
         setProductInfo(newProductInfo);
     }
     const handleSubmit = e => {
