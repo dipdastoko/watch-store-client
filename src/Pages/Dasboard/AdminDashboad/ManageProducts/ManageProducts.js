@@ -74,7 +74,7 @@ const ManageProducts = () => {
                 onClose={handleClose}
             >
                 <DialogTitle>
-                    {"Cancel Order? Click 'Yes' to confirm"}
+                    {"Remove Product? Click 'Yes' to confirm"}
                 </DialogTitle>
 
                 <DialogActions>
