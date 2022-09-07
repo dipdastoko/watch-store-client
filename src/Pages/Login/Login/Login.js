@@ -12,6 +12,7 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
+
     const [values, setValues] = React.useState({
         email: '',
         password: '',
@@ -37,6 +38,8 @@ const Login = () => {
         signInWithEmailPass(values.email, values.password, location, navigate);
         e.preventDefault();
     }
+
+
     return (
         <Box>
             <Navbar />
