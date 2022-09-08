@@ -1,4 +1,4 @@
-import { Alert, Button, Collapse, Divider, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Alert, Button, Collapse, Dialog, DialogActions, DialogTitle, Divider, Grid, Paper, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import { useState } from 'react';
@@ -10,6 +10,12 @@ import Navbar from '../Home/Navbar/Navbar';
 const PurchaseNow = () => {
     const [alertMessage, setAlertMessage] = useState('');
     const [open, setOpen] = useState(true);
+
+    const [openDialog, setOpenDialog] = useState(false);
+    const handleClose = () => {
+        setOpenDialog(false);
+    };
+
 
     const { productId } = useParams();
     const allProducts = useProducts('all');
@@ -25,6 +31,7 @@ const PurchaseNow = () => {
         address: '',
     });
 
+
     const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
@@ -33,9 +40,20 @@ const PurchaseNow = () => {
         setOrderDetails(newOrderDetails);
     };
 
+    const [order, setOrder] = useState({});
+
     const handlePlaceOrder = e => {
+
         setOpen(true);
+
         const order = { ...orderDetails, productName: selectedProduct.name, price: selectedProduct.price, img: selectedProduct.img, status: 'Pending' };
+
+        setOrder(order);
+
+        e.preventDefault();
+    };
+
+    const placeOrder = () => {
         fetch('https://polar-citadel-78881.herokuapp.com/orders', {
             method: 'POST',
             headers: {
@@ -54,7 +72,6 @@ const PurchaseNow = () => {
                     setAlertMessage('error')
                 }
             });
-        e.preventDefault();
     }
 
 
@@ -108,7 +125,10 @@ const PurchaseNow = () => {
                         <Divider />
                         <br />
 
-                        <form onSubmit={handlePlaceOrder}>
+                        <form onSubmit={(e) => {
+                            handlePlaceOrder(e);
+                            setOpenDialog(true);
+                        }}>
                             {
                                 selectedProduct?.name &&
                                 <TextField
@@ -169,6 +189,26 @@ const PurchaseNow = () => {
                     </Paper>
                 </Grid>
             </Grid>
+
+            {/* confirmation dialouge */}
+            <Dialog
+                open={openDialog}
+                onClose={handleClose}
+            >
+                <DialogTitle>
+                    {"Confirm Order? Click 'Yes' to confirm"}
+                </DialogTitle>
+
+                <DialogActions>
+                    <Button onClick={() => {
+                        placeOrder();
+                        handleClose();
+                    }}>Yes</Button>
+                    <Button onClick={() => {
+                        handleClose();
+                    }}>No</Button>
+                </DialogActions>
+            </Dialog>
 
         </Box>
     );

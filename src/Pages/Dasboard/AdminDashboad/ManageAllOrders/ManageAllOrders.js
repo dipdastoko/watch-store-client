@@ -11,6 +11,7 @@ const ManageAllOrders = () => {
 
     const handleClose = () => {
         setOpen(false);
+        setIsCanceledOrUpdated(false);
     };
 
     useEffect(() => {
