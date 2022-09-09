@@ -33,4 +33,8 @@ Watch Store is a website from where people can buy wrist watches from online. Th
 - admin can manage all the products. he/she can add a new product and remove a product from database.
 - admin can make another user an admin.
 
+### Admin Access
+username: admin@admin.com </br>
+pass: 123456
+
 
