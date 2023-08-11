@@ -54,7 +54,7 @@ const PurchaseNow = () => {
     };
 
     const placeOrder = () => {
-        fetch('https://polar-citadel-78881.herokuapp.com/orders', {
+        fetch('https://watch-store-server.vercel.app/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

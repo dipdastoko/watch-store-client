@@ -23,7 +23,7 @@ const TakeReview = () => {
 
         const review = { reviewText, rating: value, name: user.displayName, date: date.toLocaleDateString() };
 
-        fetch('https://polar-citadel-78881.herokuapp.com/review', {
+        fetch('https://watch-store-server.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

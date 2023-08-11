@@ -21,7 +21,7 @@ const AddProduct = () => {
         setProductInfo(newProductInfo);
     }
     const handleSubmit = e => {
-        fetch('https://polar-citadel-78881.herokuapp.com/product', {
+        fetch('https://watch-store-server.vercel.app/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -17,14 +17,14 @@ const MyOrders = () => {
 
 
     useEffect(() => {
-        fetch(`https://polar-citadel-78881.herokuapp.com/orders/${user.email}`)
+        fetch(`https://watch-store-server.vercel.app/orders/${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data));
         setIsCanceled(false);
     }, [user.email, isCanceled]);
 
     const deleteOrder = id => {
-        fetch(`https://polar-citadel-78881.herokuapp.com/order/${id}`, {
+        fetch(`https://watch-store-server.vercel.app/order/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

@@ -86,7 +86,7 @@ const useFirebase = () => {
     };
 
     const stroeUserInDatabase = (newUser, method) => {
-        fetch('https://polar-citadel-78881.herokuapp.com/user', {
+        fetch('https://watch-store-server.vercel.app/user', {
             method: `${method}`,
             headers: {
                 'content-type': 'application/json'
@@ -99,7 +99,7 @@ const useFirebase = () => {
     };
 
     useEffect(() => {
-        fetch(`https://polar-citadel-78881.herokuapp.com/user/${user.email}`)
+        fetch(`https://watch-store-server.vercel.app/user/${user.email}`)
             .then(res => res.json())
             .then(data => setIsAdmin(data));
     }, [user.email]);

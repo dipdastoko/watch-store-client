@@ -13,7 +13,7 @@ const MakeAdmin = () => {
 
     const handleMakeAdmin = e => {
         const user = { email };
-        fetch('https://polar-citadel-78881.herokuapp.com/user/makeadmin', {
+        fetch('https://watch-store-server.vercel.app/user/makeadmin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
