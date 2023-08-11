@@ -7,7 +7,7 @@ import ReviewCard from './ReviewCard';
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('https://watch-store-server.vercel.app/review')
+        fetch('https://watch-store-server-hqwm.onrender.com/review')
             .then(res => res.json())
             .then(data => setReviews(data));
     }, []);

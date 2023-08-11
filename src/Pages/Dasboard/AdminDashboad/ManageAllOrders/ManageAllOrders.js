@@ -15,13 +15,13 @@ const ManageAllOrders = () => {
     };
 
     useEffect(() => {
-        fetch('https://watch-store-server.vercel.app/orders')
+        fetch('https://watch-store-server-hqwm.onrender.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data));
     }, [isCanceledOrUpdated]);
 
     const removeOrUpdateOrder = (id, method) => {
-        fetch(`https://watch-store-server.vercel.app/order/${id}`, {
+        fetch(`https://watch-store-server-hqwm.onrender.com/order/${id}`, {
             method: `${method}`
         })
             .then(res => res.json())

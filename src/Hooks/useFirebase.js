@@ -86,7 +86,7 @@ const useFirebase = () => {
     };
 
     const stroeUserInDatabase = (newUser, method) => {
-        fetch('https://watch-store-server.vercel.app/user', {
+        fetch('https://watch-store-server-hqwm.onrender.com/user', {
             method: `${method}`,
             headers: {
                 'content-type': 'application/json'
@@ -99,7 +99,7 @@ const useFirebase = () => {
     };
 
     useEffect(() => {
-        fetch(`https://watch-store-server.vercel.app/user/${user.email}`)
+        fetch(`https://watch-store-server-hqwm.onrender.com/user/${user.email}`)
             .then(res => res.json())
             .then(data => setIsAdmin(data));
     }, [user.email]);

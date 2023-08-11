@@ -23,7 +23,7 @@ const TakeReview = () => {
 
         const review = { reviewText, rating: value, name: user.displayName, date: date.toLocaleDateString() };
 
-        fetch('https://watch-store-server.vercel.app/review', {
+        fetch('https://watch-store-server-hqwm.onrender.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

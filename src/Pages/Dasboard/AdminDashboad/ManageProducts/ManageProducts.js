@@ -8,7 +8,7 @@ const ManageProducts = () => {
     const [productId, setProductId] = useState('');
 
     const handleRemoveProduct = id => {
-        fetch(`https://watch-store-server.vercel.app/product/${id}`, {
+        fetch(`https://watch-store-server-hqwm.onrender.com/product/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

@@ -13,7 +13,7 @@ const MakeAdmin = () => {
 
     const handleMakeAdmin = e => {
         const user = { email };
-        fetch('https://watch-store-server.vercel.app/user/makeadmin', {
+        fetch('https://watch-store-server-hqwm.onrender.com/user/makeadmin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
