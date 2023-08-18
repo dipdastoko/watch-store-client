@@ -17,7 +17,7 @@ Watch Store is a website from where people can buy wrist watches from online. Th
 - Node.js
 - MongoDB
 - Firebase Authentication
-- Server is hosted in HEROKU
+- Server is hosted in Render
 
 ## Functionality
 
